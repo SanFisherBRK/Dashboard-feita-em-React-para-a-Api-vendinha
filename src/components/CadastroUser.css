@@ -1,0 +1,71 @@
+
+#formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  
+  #input[type="text"],
+  select {
+    width: 100%;
+    height: 28px;
+    border-radius: 15px;
+    border: 1px, solid green;
+  }
+  
+  #input[type="email"],
+  select {
+    width: 100%;
+    height: 28px;
+    border-radius: 15px;
+    border: 1px, solid green;
+  }
+  
+  #input[type="password"],
+  select {
+    width: 100%;
+    height: 28px;
+    border-radius: 15px;
+    border: 1px, solid green;
+  }
+  
+  #input[type="button"],
+  select {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px, solid green;
+    margin: 3px;
+  }
+  img {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #form {
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    justify-items: center;
+    box-shadow: 2px 5px 4px 3px;
+    padding: 20px;
+    width: 500px;
+    height: 600px;
+  }
+  
