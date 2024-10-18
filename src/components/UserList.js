@@ -74,7 +74,7 @@ const UserTable = () => {
   };
 
   return (
-    <div>
+    <div class="my-4 border ">
       <DataTable
         title="Lista de Usuários"
         columns={columns}

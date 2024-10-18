@@ -43,7 +43,7 @@ function CadastroVenda() {
   }
 
   return (
-    <div id="formularioProduto">
+    <div class="container my-3 border" id="formularioProduto">
       <form id="formProduto" onSubmit={salvar}>
         <img src={logo} alt="Logo" />
         <h2>Venda</h2>
@@ -55,7 +55,8 @@ function CadastroVenda() {
           placeholder="Quantidade:"
           value={quantidade}
           onChange={(e) => setQuantidade(e.target.value)}
-        />
+        /><br/>
+        
         <input
           className="form-control"
           type="text"
@@ -64,7 +65,7 @@ function CadastroVenda() {
           placeholder="User:"
           value={userId}
           onChange={(e) => setUserId(e.target.value)}
-        />
+        /><br/>
         <input
           className="form-control"
           type="text"
@@ -73,9 +74,16 @@ function CadastroVenda() {
           placeholder="Produto:"
           value={produtoId}
           onChange={(e) => setProdutoId(e.target.value)}
-        />
-        <button type="submit">Cadastrar</button><br/>
-        <a href="http://localhost:3000/Home">Home</a>
+        /><br/>
+        <button
+          data-mdb-ripple-init
+          type="button"
+          className="btn btn-outline-dark btn-lg btn-block mb-4"
+          onClick={salvar}
+        >
+          Salvar
+        </button>
+        
       </form>
     </div>
   );

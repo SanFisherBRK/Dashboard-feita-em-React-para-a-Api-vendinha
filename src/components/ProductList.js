@@ -77,7 +77,7 @@ const ProductTable = () => {
   };
 
   return (
-    <div>
+    <div class="container my-3 border">
       <DataTable
         title="Lista de Produtos"
         columns={columns}

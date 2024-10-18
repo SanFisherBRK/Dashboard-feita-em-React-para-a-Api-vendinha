@@ -1,5 +1,4 @@
-
-import "./CadastroUser.css";
+import "./usuario.css";
 import logo from "../imagens/Usuarios.png";
 import { useState } from "react";
 
@@ -43,58 +42,93 @@ function CadastroUser() {
   }
 
   return (
-    <div id="formulario">
-      <form id="form">
-        <img src={logo} alt="Logo" type="image" />
-        <h2>Cadastrar-se</h2>
-        <label htmlFor="nome">Nome</label>
-        <input
-          type="text"
-          name="nome"
-          id="input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+    <div className="container my-3 border" id="usuario">
+      <form justify-content="center">
+        <img src={logo} alt="Logo" />
+        <br />
+        <br />
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="input"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="row mb-4">
+          <div className="col">
+            <div data-mdb-input-init className="form-outline">
+              <input
+                type="text"
+                id="form6Example1"
+                className="form-control"
+                placeholder="Nome:"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <br />
 
-        <label htmlFor="password">Senha</label>
-        <input
-          type="password"
-          name="senha"
-          id="input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+            <div data-mdb-input-init className="form-outline">
+              <input
+                type="email"
+                id="form6Example2"
+                className="form-control"
+                placeholder="Email:"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
 
-        <label htmlFor="cpf">CPF</label>
-        <input
-          type="text"
-          name="cpf"
-          id="input"
-          value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
-        />
+        <div data-mdb-input-init className="form-outline mb-4">
+          <input
+            type="password"
+            id="form6Example3"
+            className="form-control"
+            placeholder="Senha:"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-        <label htmlFor="cnpj">CNPJ</label>
-        <input
-          type="text"
-          name="cnpj"
-          id="input"
-          value={cnpj}
-          onChange={(e) => setCnpj(e.target.value)}
-        />
+        <div data-mdb-input-init className="form-outline mb-4">
+          <input
+            type="text"
+            id="form6Example4"
+            className="form-control"
+            placeholder="CPF:"
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+          />
+        </div>
 
-        <input onClick={salvar} type="button" class="btn btn-primary" value="Cadastrar" />
+        <div data-mdb-input-init className="form-outline mb-4">
+          <input
+            type="text"
+            id="form6Example5"
+            className="form-control"
+            placeholder="CNPJ:"
+            value={cnpj}
+            onChange={(e) => setCnpj(e.target.value)}
+          />
+        </div>
 
-        <a href="http://localhost:3000/Hopme">Home</a>
+        <div className="form-check d-flex justify-content-center mb-4">
+          <input
+            className="form-check-input me-2"
+            type="checkbox"
+            value=""
+            id="form6Example8"
+            defaultChecked
+          />
+          <label className="form-check-label" htmlFor="form6Example8">
+            Create an account?
+          </label>
+        </div>
+
+        <button
+          data-mdb-ripple-init
+          type="button"
+          className="btn btn-outline-dark btn-lg btn-block mb-4"
+          onClick={salvar}
+        >
+          Salvar
+        </button>
       </form>
     </div>
   );

@@ -39,10 +39,10 @@ function CadastroProduto() {
   }
 
   return (
-    <div id="formularioProduto">
+    <div class="container my-3 border"  id="formularioProduto">
       <form id="formProduto">
         <img src={logo} alt="Logo" type="image" />
-        <h2>Products</h2>
+        <h2>Products</h2><br/>
 
         <input 
         class="form-control" 
@@ -53,7 +53,7 @@ function CadastroProduto() {
         aria-label="default input example"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        />
+        /><br/>
 
         <input 
         class="form-control" 
@@ -64,7 +64,7 @@ function CadastroProduto() {
         aria-label="default input example"
         value={quantidade}
         onChange={(e) => setQuantidade(e.target.value)}
-        />
+        /><br/>
 
         <input 
         class="form-control" 
@@ -75,12 +75,19 @@ function CadastroProduto() {
         aria-label="default input example"
         value={preco}
           onChange={(e) => setPreco(e.target.value)}
-        />
+        /><br/>
 
 
-        <input onClick={salvar} type="button" value="Cadastrar" />
+        <button
+          data-mdb-ripple-init
+          type="button"
+          className="btn btn-outline-dark btn-lg btn-block mb-4"
+          onClick={salvar}
+        >
+          Salvar
+        </button>
 
-        <a href="http://localhost:3000/Hopme">Home</a>
+        
       </form>
     </div>
   );
