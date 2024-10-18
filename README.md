@@ -20,6 +20,12 @@ Manda equisições de put para fazer a atualização dos cadastros.
 
 ## Layout web
 
+<p align="center">
+    <img width="800" height="600" src="https://github.com/SanFisherBRK/Dashboard-feita-em-React-para-a-Api-vendinha/blob/main/src/ImagensGitHub/Layout2.gif"
+</p>
+
+
+
 
 ## Modelo conceitual
 
