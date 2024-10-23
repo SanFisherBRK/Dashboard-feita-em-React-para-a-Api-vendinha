@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import UserList from "./components/UserList";
 import ProductList from "./components/ProductList";
+import VendaList from "./components/VendaList";
 
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/customers" element={<Usuario />} />
               <Route path="/products" element={<Products />} />
               <Route path="/vendas" element={<Venda />} />
+              <Route path="/listarvendas" element={<VendaList />} />
               <Route path="/listarusuarios" element={<UserList />} />
               <Route path="/listarprodutos" element={<ProductList />} />
               <Route path="/users" element={<UserList />} /> {/* Nova Rota */}

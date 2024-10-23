@@ -37,6 +37,12 @@ function SidebarMenu() {
           </Link>
         </li>
         <li className="nav-item text-white fs-4 my-1">
+          <Link to="/listarvendas" className="nav-link text-white fs-5">
+            <i className="bi bi-table"></i>
+            <span className="ms-2">Buscar Vendas</span>
+          </Link>
+        </li>
+        <li className="nav-item text-white fs-4 my-1">
           <Link to="/customers" className="nav-link text-white fs-5">
             <i className="bi bi-people"></i>
             <span className="ms-2">Usuários</span>
