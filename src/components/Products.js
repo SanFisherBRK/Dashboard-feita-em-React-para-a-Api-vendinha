@@ -1,13 +1,17 @@
 
-
-import logo from "../imagens/Products.png";
+// Importa a imagem do logo
+import logo from "../imagens/Products.png"; 
+// Importa o hook useState do React
 import { useState } from "react";
 
 function CadastroProduto() {
+
+  // Define os estados para armazenar os valores dos inputs
   const [name, setName] = useState("");
   const [quantidade, setQuantidade] = useState("");
   const [preco, setPreco] = useState("");
 
+  // Função para salvar o produto
   async function salvar() {
     const userData = {
       name,
@@ -16,25 +20,41 @@ function CadastroProduto() {
     };
 
     try {
+
+      // Envia uma requisição POST para salvar o produto no servidor
       let response = await fetch("http://localhost:8081/api/produtos/save", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+
+        // Converte os dados do produto em JSON
         body: JSON.stringify(userData),
+
       });
 
       if (!response.ok) {
+
+        // Lança um erro se a resposta não for ok
         throw new Error("Erro ao salvar produto");
+
       }
 
+      // Exibe uma mensagem de sucesso
       alert("Poduto salvo com sucesso");
-
       let resposta = await response.json();
+
+      // Imprime a resposta no console
       console.log(resposta);
+
     } catch (error) {
+
+      // Imprime o erro no console
       console.error("Erro:", error);
+
+      // Exibe a mensagem de erro
       alert(error.message);
+
     }
   }
 
@@ -93,4 +113,5 @@ function CadastroProduto() {
   );
 }
 
+// Exporta o componente CadastroProduto
 export default CadastroProduto;

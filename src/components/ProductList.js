@@ -1,8 +1,16 @@
+// Importa React e hooks useEffect, useState
 import React, { useEffect, useState } from 'react';
+
+// Importa DataTable
 import DataTable from 'react-data-table-component';
+
+// Importa componentes do Bootstrap
 import { Button, Modal, Form } from 'react-bootstrap';
 
+//Função de seta
 const ProductTable = () => {
+
+  // Define estados para produtos, visibilidade do modal, e produto atual
   const [products, setProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({
@@ -12,6 +20,7 @@ const ProductTable = () => {
     preco: ''
   });
 
+  // UseEffect para buscar produtos quando o componente é montado
   useEffect(() => {
     fetch('http://localhost:8081/api/produtos/findAll')
       .then(response => response.json())
@@ -19,38 +28,61 @@ const ProductTable = () => {
       .catch(error => console.error('Erro ao buscar produtos:', error));
   }, []);
 
+  // Função para abrir o modal e definir o produto atual para atualização
   const handleUpdate = (id) => {
     const product = products.find(product => product.id === id);
     setCurrentProduct(product);
     setShowModal(true);
   };
 
+  // Função para salvar as alterações do produto
   const handleSave = () => {
     const updatedProduct = currentProduct;
+
+    // Atualiza o estado local com o produto atualizado
     setProducts(products.map(product => product.id === updatedProduct.id ? updatedProduct : product));
     setShowModal(false);
 
+    // Envia as alterações para o servidor
     fetch(`http://localhost:8081/api/produtos/update/${currentProduct.id}`, {
+
       method: 'PUT',
+
       headers: {
+
         'Content-Type': 'application/json'
+
       },
+
       body: JSON.stringify(currentProduct)
+
     })
+
     .then(response => response.json())
+
     .then(updatedProduct => {
+
+      // Atualiza o estado com o produto retornado
       setProducts(products.map(product => product.id === updatedProduct.id ? updatedProduct : product));
     })
     .catch(error => {
+
       console.error('Erro ao atualizar produto:', error);
-      setProducts(products); // Reverter em caso de erro
+
+      // Reverter em caso de erro
+      setProducts(products); 
+
     });
   };
 
+  // Função para deletar um produto
   const handleDelete = (id) => {
+
     setProducts(products.filter(product => product.id !== id));
+
   };
 
+  // Definição das colunas da tabela
   const columns = [
     { name: 'ID', selector: row => row.id, sortable: true },
     { name: 'Nome', selector: row => row.name, sortable: true },
@@ -71,6 +103,7 @@ const ProductTable = () => {
     },
   ];
 
+  // Função para lidar com mudanças nos campos do modal
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCurrentProduct(prevState => ({ ...prevState, [name]: value }));
@@ -132,4 +165,5 @@ const ProductTable = () => {
   );
 };
 
+// Exporta o componente ProductTable
 export default ProductTable;
